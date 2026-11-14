@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>For Purbasha — Birthday Surprise</title>
+    <meta name="description" content="An interactive birthday surprise from Soumik to Purbasha." />
+    <meta property="og:title" content="For Purbasha — Birthday Surprise" />
+    <meta property="og:description" content="An interactive birthday surprise from Soumik to Purbasha." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Anek+Bangla:wght@400;500;600;700&family=Caveat:wght@600;700&family=Cinzel+Decorative:wght@700&family=Dancing+Script:wght@600;700&family=Galada&family=Great+Vibes&family=Hind+Siliguri:wght@400;500;600;700&family=Italiana&family=Noto+Sans+Bengali:wght@400;500;600;700&family=Noto+Serif+Bengali:wght@400;500;600;700&family=Outfit:wght@500;600;700;800;900&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Syne:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="./src/main.tsx"></script>
+    <script>
+      (function () {
+        // Only runs if raw unbuilt index.html is served directly (e.g. GitHub Pages branch root without Actions build)
+        var rawEntry = document.querySelector('script[src*="main.tsx"]');
+        if (!rawEntry) return;
+        window.setTimeout(function () {
+          var root = document.getElementById('root');
+          if (!root || root.childElementCount > 0) return;
+          fetch('./docs/index.html', { cache: 'no-store' })
+            .then(function (res) {
+              if (res.ok) {
+                window.location.replace('./docs/' + window.location.search + window.location.hash);
+              } else {
+                throw new Error('Missing docs build');
+              }
+            })
+            .catch(function () {
+              root.innerHTML =
+                '<div style="min-height:100vh;background:#050716;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;text-align:center;font-family:sans-serif">' +
+                '<h2 style="color:#fda4af;margin-bottom:10px">GitHub Pages Build Required</h2>' +
+                '<p style="max-width:460px;line-height:1.6;color:#d4d4d8;font-size:14px">' +
+                'GitHub Repository Settings &rarr; Pages &rarr; Source থেকে <b>GitHub Actions</b> অথবা Branch <b>main (/docs)</b> সিলেক্ট করুন।' +
+                '</p></div>';
+            });
+        }, 900);
+      })();
+    </script>
+  </body>
+</html>

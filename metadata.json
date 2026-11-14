@@ -1,0 +1,11 @@
+{
+  "name": "For Purbasha — Birthday Surprise",
+  "description": "An interactive birthday surprise from Soumik to Purbasha.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone"
+  ],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
